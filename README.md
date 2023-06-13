@@ -2,6 +2,15 @@
 
 This project is for scan the handwritten document, and transform them into text files. By using the latest deep learning models (**CRAFT** for text detection, **TROCR** for OCR transformation). This combinations can achieve very accurate results than other methods. Especially, the transformer OCR could both care about the individual word form but also the context information in the visual representation which can result better results than other methods. Related information, please read their papers()
 
+## Set up
+For GPU use
+```bash
+conda env create -n docOCR --file environment.yml  
+```
+For CPU use
+```bash
+conda env create -n docOCR --file environment-cpu.yml  
+```
 
 ## The normal steps to do document ocr
 
