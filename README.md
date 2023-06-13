@@ -13,7 +13,7 @@ So, the first step is to detect word location, here we use **CRAFT-pytorch** pro
 
 
 *Here is one example document under processing*
-![image](.\asset/front.png)
+![image](asset/front.png)
 
 Although you can see, when we have some normal page, there still have some unwanted part in a page, so we can use some tools to crop the page. You can use `./utils/image_measure.py` to measure the point pixel position, and later use `./utils/image_crop.py` to crop the image.
 
