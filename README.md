@@ -34,6 +34,44 @@ If all your images in a folder have a similiar layout, you can use the `process_
 
 ### SECOND STEP, detect the word in document
 
+You can detect the the image with `CRAFT-pytorch\test_raw.py`
+use:
+    ```bash
+    python test_raw.py --trained_model=CRAFT-pytorch\craft_mlt_25k.pth --test_folder=CRAFT-pytorch\testimgraw --text_threshold=0.
+    ```
+here is the result:
+![img3](asset/res_crop_image.jpg)
+
+
+However you can directly load those cropped detected word into the OCR model. But this usually doesn't promise you a good result, cause it is just individual word lost the context.
+
+So, I reform a little bit to use the word detection to the line detection. I join the whole line of word detection into lines of bounding boxes like below:
+![img4](asset/res_crop_image_5.jpg)
+
+
+
+### THIRD STEP, OCR
+
+You can pass the folder contain the cropped images in `CRAFT-pytorch\test.py`
+
+```python
+## pass the folder path
+images_all = glob.glob(r"D:\NLP\语料\语料\**\**\**\CroppedImage.png")
+```
+
+And then run with:
+```bash
+python test.py --trained_model=CRAFT-pytorch\craft_mlt_25k.pth --test_folder=CRAFT-pytorch\testimg --text_threshold=0.7
+```
+
+And then the Recognized text are stored in each image path folder in txt extention.
+![img5](asset/OCR_Result_txt.png)
+
+
+## Remind
+
+This script is write in a mess, there are many parameters can be tuned, if you have any problem contact me.
+
 
 
 
